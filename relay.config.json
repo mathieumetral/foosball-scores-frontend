@@ -1,0 +1,8 @@
+{
+  "src": "./src",
+  "language": "typescript",
+  "schema": "./data/schema.graphql",
+  "artifactDirectory": "./data/__generated__",
+  "exclude": ["**/.next/**", "**/node_modules/**", "**/__generated__/**", "**/data/**"],
+  "eagerEsModules": true
+}
