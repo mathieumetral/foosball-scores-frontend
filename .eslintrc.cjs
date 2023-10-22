@@ -1,11 +1,7 @@
 // Inspired by https://github.com/airbnb/javascript.
 
 module.exports = {
-  extends: [
-    'eslint:recommended',
-    'plugin:tailwindcss/recommended',
-    'next/core-web-vitals',
-  ],
+  extends: ['eslint:recommended', 'plugin:tailwindcss/recommended', 'next/core-web-vitals'],
   overrides: [
     {
       files: ['**/*.ts?(x)'],
