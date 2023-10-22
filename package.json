@@ -7,11 +7,11 @@
     "build": "next build",
     "start": "next start",
     "dev": "next dev",
-    "typescript:check": "tsc --project tsconfig.json --incremental false",
     "format": "prettier --check '{**/*,*}.{js,cjs,ts,jsx,tsx,json,yml,yaml}'",
     "format:fix": "prettier --write '{**/*,*}.{js,cjs,ts,jsx,tsx,json,yml,yaml}'",
     "lint": "next lint",
-    "lint:fix": "next lint --fix"
+    "lint:fix": "next lint --fix",
+    "typescript:check": "tsc --project tsconfig.json --incremental false"
   },
   "dependencies": {
     "next": "^13.5.6",
