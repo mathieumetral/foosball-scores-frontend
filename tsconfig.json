@@ -16,6 +16,9 @@
     "incremental": true,
     "plugins": [{"name": "next"}],
     "paths": {
+      "@app/*": ["./src/app/*"],
+      "@data/*": ["./data/*"],
+      "@features/*": ["./src/features/*"],
       "@lib/*": ["./src/lib/*"]
     }
   },
