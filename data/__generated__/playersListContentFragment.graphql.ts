@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<9c3bb8363a1a6a15622fd9c04dc0d1c4>>
+ * @generated SignedSource<<d7fd6ddefdf62ed2baab9a7d51ab2a66>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -72,7 +72,13 @@ return {
   "selections": [
     {
       "alias": "players",
-      "args": null,
+      "args": [
+        {
+          "kind": "Literal",
+          "name": "orderBy",
+          "value": "RATIO_GOAL_DIFF_MOST"
+        }
+      ],
       "concreteType": "QueryPlayersConnection",
       "kind": "LinkedField",
       "name": "__playersListContentFragment_players_connection",
@@ -152,7 +158,7 @@ return {
           "storageKey": null
         }
       ],
-      "storageKey": null
+      "storageKey": "__playersListContentFragment_players_connection(orderBy:\"RATIO_GOAL_DIFF_MOST\")"
     }
   ],
   "type": "Query",
@@ -160,6 +166,6 @@ return {
 };
 })();
 
-(node as any).hash = "692841bb6a0b7ed7dbc5646413c408c7";
+(node as any).hash = "e27181d203e894a25a7920c823b3a296";
 
 export default node;
