@@ -6,6 +6,7 @@ import {useFragment, useMutation} from 'react-relay';
 import {Button} from '@lib/ui/components/button';
 import {gamesListItemDeleteMutation} from '@data/__generated__/gamesListItemDeleteMutation.graphql';
 import {clsx} from 'clsx';
+import Link from 'next/link';
 
 const gamesListItemDeleteMutation = graphql`
   mutation gamesListItemDeleteMutation($input: DeleteGameInput!) {
@@ -89,9 +90,17 @@ export function GamesListItem({game}: Props) {
         <GamesListItemTeam players={data.leftSide.team.players} />
         <GamesListItemTeam players={data.rightSide.team.players} />
       </div>
-      <Button className="mt-4 w-full bg-red-100 text-sm text-red-600" onClick={handleDelete}>
-        Delete this game
-      </Button>
+      <div className="mt-4">
+        <Link
+          className="block w-full rounded-full bg-blue-100 px-4 py-1.5 text-center text-sm text-blue-600"
+          href={`/games/${data.id}`}
+        >
+          Update this game
+        </Link>
+        <Button className="mt-2 w-full bg-red-100 text-sm text-red-600" onClick={handleDelete}>
+          Delete this game
+        </Button>
+      </div>
     </div>
   );
 }

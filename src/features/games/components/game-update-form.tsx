@@ -2,29 +2,58 @@
 
 import {graphql} from 'relay-runtime';
 import {useState} from 'react';
-import {useMutation} from 'react-relay';
-import {gameCreateFormMutation as gameCreateFormMutationType} from '@data/__generated__/gameCreateFormMutation.graphql';
+import {useLazyLoadQuery, useMutation} from 'react-relay';
 import {useRouter} from 'next/navigation';
 import {useFormValidation} from '@lib/hooks/use-form-validation';
 import {TextField} from '@lib/ui/components/text-field';
 import {Button} from '@lib/ui/components/button';
 import {gameFormSchema} from '@features/games/form-validation/game-form';
+import {gameUpdateFormMutation as gameUpdateFormMutationType} from '@data/__generated__/gameUpdateFormMutation.graphql';
+import {gameUpdateFormQuery as gameUpdateFormQueryType} from '@data/__generated__/gameUpdateFormQuery.graphql';
 
-const gameCreateFormMutation = graphql`
-  mutation gameCreateFormMutation($input: CreateGameInput!) {
-    createGame(input: $input) {
+const gameUpdateFormQuery = graphql`
+  query gameUpdateFormQuery($id: ID!) {
+    game(id: $id) {
+      leftSide {
+        score
+        team {
+          players {
+            name
+          }
+        }
+      }
+      rightSide {
+        score
+        team {
+          players {
+            name
+          }
+        }
+      }
+    }
+  }
+`;
+
+const gameUpdateFormMutation = graphql`
+  mutation gameUpdateFormMutation($input: UpdateGameInput!) {
+    updateGame(input: $input) {
       ...gamesListItemFragment
     }
   }
 `;
 
-export function GameCreateForm() {
+export function GameUpdateForm({id}: {id: string}) {
   const router = useRouter();
-  const [commitMutation, isMutationInFlight] = useMutation<gameCreateFormMutationType>(gameCreateFormMutation);
-  const [leftPlayerName, setLeftPlayerName] = useState('');
-  const [rightPlayerName, setRightPlayerName] = useState('');
-  const [leftScore, setLeftScore] = useState<number>(0);
-  const [rightScore, setRightScore] = useState<number>(0);
+
+  const {game} = useLazyLoadQuery<gameUpdateFormQueryType>(gameUpdateFormQuery, {
+    id,
+  });
+  const [commitMutation, isMutationInFlight] = useMutation<gameUpdateFormMutationType>(gameUpdateFormMutation);
+
+  const [leftPlayerName, setLeftPlayerName] = useState(game?.leftSide.team.players[0].name ?? '');
+  const [rightPlayerName, setRightPlayerName] = useState(game?.rightSide.team.players[0].name ?? '');
+  const [leftScore, setLeftScore] = useState<number>(game?.leftSide.score ?? 0);
+  const [rightScore, setRightScore] = useState<number>(game?.rightSide.score ?? 0);
   const {registerField, handleSubmit: handleValidation} = useFormValidation({
     schema: gameFormSchema,
     values: {
@@ -39,6 +68,7 @@ export function GameCreateForm() {
     commitMutation({
       variables: {
         input: {
+          id,
           leftSide: {
             playerName: leftPlayerName,
             score: leftScore,
@@ -48,17 +78,6 @@ export function GameCreateForm() {
             score: rightScore,
           },
         },
-      },
-      updater: store => {
-        // Another approach here would be to update the store by appending the edge we just created
-        // and updating the player's statistics (https://relay.dev/docs/guided-tour/list-data/updating-connections/=.
-        // However, I've chosen not to do this and instead invalidate
-        // the store because appending the edge is problematic. The query that fetches all the games has pagination,
-        // and we don't know the order in which the server returns the games.
-        // Therefore, we'd either have to adopt a strategy where newly created items appear at the top,
-        // regardless of the server-defined order, or align with the server's order.
-        // For simplicity, I prefer to refetch in this scenario.
-        store.invalidateStore();
       },
       onCompleted: () => {
         router.push('/games');
@@ -106,7 +125,7 @@ export function GameCreateForm() {
 
       <div className="mt-4 flex justify-end">
         <Button type="submit" disabled={isMutationInFlight}>
-          Create game
+          Update game
         </Button>
       </div>
     </form>
