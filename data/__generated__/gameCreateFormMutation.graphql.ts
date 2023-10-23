@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<d7966f757a3b79249eebb6d356dd8472>>
+ * @generated SignedSource<<f6ef37f09856ecab7df3d0508ef3c7ed>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -134,6 +134,7 @@ return {
         "name": "createGame",
         "plural": false,
         "selections": [
+          (v2/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -153,20 +154,19 @@ return {
             "plural": false,
             "selections": (v3/*: any*/),
             "storageKey": null
-          },
-          (v2/*: any*/)
+          }
         ],
         "storageKey": null
       }
     ]
   },
   "params": {
-    "cacheID": "c03a47c48fb2c5e0fe411bd04c8d47cf",
+    "cacheID": "ba4320fba5f67b37723a6261ae32dacf",
     "id": null,
     "metadata": {},
     "name": "gameCreateFormMutation",
     "operationKind": "mutation",
-    "text": "mutation gameCreateFormMutation(\n  $input: CreateGameInput!\n) {\n  createGame(input: $input) {\n    ...gamesListItemFragment\n    id\n  }\n}\n\nfragment gamesListItemFragment on Game {\n  leftSide {\n    team {\n      players {\n        id\n        name\n      }\n      id\n    }\n    score\n  }\n  rightSide {\n    team {\n      players {\n        id\n        name\n      }\n      id\n    }\n    score\n  }\n}\n"
+    "text": "mutation gameCreateFormMutation(\n  $input: CreateGameInput!\n) {\n  createGame(input: $input) {\n    ...gamesListItemFragment\n    id\n  }\n}\n\nfragment gamesListItemFragment on Game {\n  id\n  leftSide {\n    team {\n      players {\n        id\n        name\n      }\n      id\n    }\n    score\n  }\n  rightSide {\n    team {\n      players {\n        id\n        name\n      }\n      id\n    }\n    score\n  }\n}\n"
   }
 };
 })();

@@ -2,10 +2,22 @@
 
 import {graphql} from 'relay-runtime';
 import {gamesListItemFragment$data, gamesListItemFragment$key} from '@data/__generated__/gamesListItemFragment.graphql';
-import {useFragment} from 'react-relay';
+import {useFragment, useMutation} from 'react-relay';
+import {Button} from '@lib/ui/components/button';
+import {gamesListItemDeleteMutation} from '@data/__generated__/gamesListItemDeleteMutation.graphql';
+import {clsx} from 'clsx';
+
+const gamesListItemDeleteMutation = graphql`
+  mutation gamesListItemDeleteMutation($input: DeleteGameInput!) {
+    deleteGame(input: $input) {
+      id @deleteRecord
+    }
+  }
+`;
 
 const gamesListItemFragment = graphql`
   fragment gamesListItemFragment on Game {
+    id
     leftSide {
       team {
         players {
@@ -53,9 +65,19 @@ interface Props {
 
 export function GamesListItem({game}: Props) {
   const data = useFragment(gamesListItemFragment, game);
+  const [commitMutation, isMutationInFlight] = useMutation<gamesListItemDeleteMutation>(gamesListItemDeleteMutation);
+
+  const handleDelete = () =>
+    commitMutation({
+      variables: {
+        input: {
+          id: data.id,
+        },
+      },
+    });
 
   return (
-    <div className="rounded-2xl bg-white p-4 shadow">
+    <div className={clsx('rounded-2xl bg-white p-4 shadow', isMutationInFlight && 'pointer-events-none opacity-40')}>
       <div className="mb-4 flex items-center justify-between">
         <div className="text-xl font-semibold">Single</div>
         <div className="font-normal text-slate-500">Date</div>
@@ -63,10 +85,13 @@ export function GamesListItem({game}: Props) {
       <div className="text-center text-3xl font-bold">
         {data.leftSide.score} - {data.rightSide.score}
       </div>
-      <div className="mt-4 grid grid-cols-2 gap-4 pt-4">
+      <div className="mt-4 grid grid-cols-2 gap-4 border-b border-slate-200 py-4">
         <GamesListItemTeam players={data.leftSide.team.players} />
         <GamesListItemTeam players={data.rightSide.team.players} />
       </div>
+      <Button className="mt-4 w-full bg-red-100 text-sm text-red-600" onClick={handleDelete}>
+        Delete this game
+      </Button>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<74168675f17566f21b3ee4c04f37196f>>
+ * @generated SignedSource<<046912e6936f38f12d34c41c8fa5032d>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -201,12 +201,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "47c4f537ec9e8fa86ccf0cb676f04e1f",
+    "cacheID": "5d9c5c86ac89aa20486c47ccdd8985a0",
     "id": null,
     "metadata": {},
     "name": "gamesListQuery",
     "operationKind": "query",
-    "text": "query gamesListQuery {\n  ...gamesListContentFragment\n}\n\nfragment gamesListContentFragment on Query {\n  games(first: 16) {\n    edges {\n      node {\n        id\n        ...gamesListItemFragment\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment gamesListItemFragment on Game {\n  leftSide {\n    team {\n      players {\n        id\n        name\n      }\n      id\n    }\n    score\n  }\n  rightSide {\n    team {\n      players {\n        id\n        name\n      }\n      id\n    }\n    score\n  }\n}\n"
+    "text": "query gamesListQuery {\n  ...gamesListContentFragment\n}\n\nfragment gamesListContentFragment on Query {\n  games(first: 16) {\n    edges {\n      node {\n        id\n        ...gamesListItemFragment\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment gamesListItemFragment on Game {\n  id\n  leftSide {\n    team {\n      players {\n        id\n        name\n      }\n      id\n    }\n    score\n  }\n  rightSide {\n    team {\n      players {\n        id\n        name\n      }\n      id\n    }\n    score\n  }\n}\n"
   }
 };
 })();
