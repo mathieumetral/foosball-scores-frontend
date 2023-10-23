@@ -1,7 +1,7 @@
 import type {Config} from 'tailwindcss';
 
 const config: Config = {
-  content: ['./src/components/**/*.{js,ts,jsx,tsx}', './src/app/**/*.{js,ts,jsx,tsx}'],
+  content: ['./src/features/**/*.{js,ts,jsx,tsx}', './src/lib/**/*.{js,ts,jsx,tsx}', './src/app/**/*.{js,ts,jsx,tsx}'],
   theme: {},
   plugins: [],
 };
