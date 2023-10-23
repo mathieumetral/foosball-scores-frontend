@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<feb35ac47a3076bb02d9a00f195030a5>>
+ * @generated SignedSource<<56a999433dcfdc5400ca546e8af28b5b>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -149,6 +149,13 @@ return {
                         "alias": null,
                         "args": null,
                         "kind": "ScalarField",
+                        "name": "ratio",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
                         "name": "goalsFor",
                         "storageKey": null
                       },
@@ -224,12 +231,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "fc0bb64459cc87d15d2f3f91913c12dd",
+    "cacheID": "eeb6cc7ba6409bb3bfd05daa39c1a653",
     "id": null,
     "metadata": {},
     "name": "playersListContentRefetchQuery",
     "operationKind": "query",
-    "text": "query playersListContentRefetchQuery(\n  $count: Int = 10\n  $cursor: ID\n) {\n  ...playersListContentFragment_1G22uz\n}\n\nfragment playersListContentFragment_1G22uz on Query {\n  players(first: $count, after: $cursor, orderBy: RATIO_GOAL_DIFF_MOST) {\n    edges {\n      node {\n        id\n        ...playersListItemFragment\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment playersListItemFragment on Player {\n  name\n  stats {\n    wins\n    losses\n    goalsFor\n    goalsAgainst\n  }\n}\n"
+    "text": "query playersListContentRefetchQuery(\n  $count: Int = 10\n  $cursor: ID\n) {\n  ...playersListContentFragment_1G22uz\n}\n\nfragment playersListContentFragment_1G22uz on Query {\n  players(first: $count, after: $cursor, orderBy: RATIO_GOAL_DIFF_MOST) {\n    edges {\n      node {\n        id\n        ...playersListItemFragment\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment playersListItemFragment on Player {\n  name\n  stats {\n    wins\n    losses\n    ratio\n    goalsFor\n    goalsAgainst\n  }\n}\n"
   }
 };
 })();
