@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<f19bf7cc2e303642ca535e4a459ffa50>>
+ * @generated SignedSource<<feb35ac47a3076bb02d9a00f195030a5>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -45,6 +45,11 @@ v1 = [
     "kind": "Variable",
     "name": "first",
     "variableName": "count"
+  },
+  {
+    "kind": "Literal",
+    "name": "orderBy",
+    "value": "RATIO_GOAL_DIFF_MOST"
   }
 ];
 return {
@@ -208,7 +213,9 @@ return {
       {
         "alias": null,
         "args": (v1/*: any*/),
-        "filters": null,
+        "filters": [
+          "orderBy"
+        ],
         "handle": "connection",
         "key": "playersListContentFragment_players",
         "kind": "LinkedHandle",
@@ -217,16 +224,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "17fcb5fc8aeb214d45bcb6534ceb60ec",
+    "cacheID": "fc0bb64459cc87d15d2f3f91913c12dd",
     "id": null,
     "metadata": {},
     "name": "playersListContentRefetchQuery",
     "operationKind": "query",
-    "text": "query playersListContentRefetchQuery(\n  $count: Int = 10\n  $cursor: ID\n) {\n  ...playersListContentFragment_1G22uz\n}\n\nfragment playersListContentFragment_1G22uz on Query {\n  players(first: $count, after: $cursor) {\n    edges {\n      node {\n        id\n        ...playersListItemFragment\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment playersListItemFragment on Player {\n  name\n  stats {\n    wins\n    losses\n    goalsFor\n    goalsAgainst\n  }\n}\n"
+    "text": "query playersListContentRefetchQuery(\n  $count: Int = 10\n  $cursor: ID\n) {\n  ...playersListContentFragment_1G22uz\n}\n\nfragment playersListContentFragment_1G22uz on Query {\n  players(first: $count, after: $cursor, orderBy: RATIO_GOAL_DIFF_MOST) {\n    edges {\n      node {\n        id\n        ...playersListItemFragment\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment playersListItemFragment on Player {\n  name\n  stats {\n    wins\n    losses\n    goalsFor\n    goalsAgainst\n  }\n}\n"
   }
 };
 })();
 
-(node as any).hash = "692841bb6a0b7ed7dbc5646413c408c7";
+(node as any).hash = "e27181d203e894a25a7920c823b3a296";
 
 export default node;

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<31715c64568bee7f8de4c8889564bb99>>
+ * @generated SignedSource<<3618311b614875b0bc162a0a4a80b933>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -25,6 +25,11 @@ var v0 = [
     "kind": "Literal",
     "name": "first",
     "value": 10
+  },
+  {
+    "kind": "Literal",
+    "name": "orderBy",
+    "value": "RATIO_GOAL_DIFF_MOST"
   }
 ];
 return {
@@ -172,12 +177,14 @@ return {
             "storageKey": null
           }
         ],
-        "storageKey": "players(first:10)"
+        "storageKey": "players(first:10,orderBy:\"RATIO_GOAL_DIFF_MOST\")"
       },
       {
         "alias": null,
         "args": (v0/*: any*/),
-        "filters": null,
+        "filters": [
+          "orderBy"
+        ],
         "handle": "connection",
         "key": "playersListContentFragment_players",
         "kind": "LinkedHandle",
@@ -186,12 +193,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "4a837f84e68278dec8a7de515c5e989b",
+    "cacheID": "94539d6865e932481294918e90e737f8",
     "id": null,
     "metadata": {},
     "name": "playersListContentQuery",
     "operationKind": "query",
-    "text": "query playersListContentQuery {\n  ...playersListContentFragment\n}\n\nfragment playersListContentFragment on Query {\n  players(first: 10) {\n    edges {\n      node {\n        id\n        ...playersListItemFragment\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment playersListItemFragment on Player {\n  name\n  stats {\n    wins\n    losses\n    goalsFor\n    goalsAgainst\n  }\n}\n"
+    "text": "query playersListContentQuery {\n  ...playersListContentFragment\n}\n\nfragment playersListContentFragment on Query {\n  players(first: 10, orderBy: RATIO_GOAL_DIFF_MOST) {\n    edges {\n      node {\n        id\n        ...playersListItemFragment\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment playersListItemFragment on Player {\n  name\n  stats {\n    wins\n    losses\n    goalsFor\n    goalsAgainst\n  }\n}\n"
   }
 };
 })();

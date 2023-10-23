@@ -15,7 +15,8 @@ export const playersListContentFragment = graphql`
   fragment playersListContentFragment on Query
   @argumentDefinitions(cursor: {type: "ID"}, count: {type: "Int", defaultValue: 10})
   @refetchable(queryName: "playersListContentRefetchQuery") {
-    players(first: $count, after: $cursor) @connection(key: "playersListContentFragment_players") {
+    players(first: $count, after: $cursor, orderBy: RATIO_GOAL_DIFF_MOST)
+      @connection(key: "playersListContentFragment_players") {
       edges {
         node {
           id
