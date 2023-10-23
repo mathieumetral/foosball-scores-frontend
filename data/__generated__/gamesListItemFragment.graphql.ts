@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<fa60c4045eef659c5aae4e30cba470d1>>
+ * @generated SignedSource<<71a5adc01d1b8291c2deb76214dd58a7>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -11,6 +11,7 @@
 import { Fragment, ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
 export type gamesListItemFragment$data = {
+  readonly id: string;
   readonly leftSide: {
     readonly score: number;
     readonly team: {
@@ -37,7 +38,14 @@ export type gamesListItemFragment$key = {
 };
 
 const node: ReaderFragment = (function(){
-var v0 = [
+var v0 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "id",
+  "storageKey": null
+},
+v1 = [
   {
     "alias": null,
     "args": null,
@@ -54,13 +62,7 @@ var v0 = [
         "name": "players",
         "plural": true,
         "selections": [
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "id",
-            "storageKey": null
-          },
+          (v0/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -88,6 +90,7 @@ return {
   "metadata": null,
   "name": "gamesListItemFragment",
   "selections": [
+    (v0/*: any*/),
     {
       "alias": null,
       "args": null,
@@ -95,7 +98,7 @@ return {
       "kind": "LinkedField",
       "name": "leftSide",
       "plural": false,
-      "selections": (v0/*: any*/),
+      "selections": (v1/*: any*/),
       "storageKey": null
     },
     {
@@ -105,7 +108,7 @@ return {
       "kind": "LinkedField",
       "name": "rightSide",
       "plural": false,
-      "selections": (v0/*: any*/),
+      "selections": (v1/*: any*/),
       "storageKey": null
     }
   ],
@@ -114,6 +117,6 @@ return {
 };
 })();
 
-(node as any).hash = "8dba63824a1559b7b97287c4fac25c4e";
+(node as any).hash = "762ec0d63ed560a0edc086e0df95250e";
 
 export default node;

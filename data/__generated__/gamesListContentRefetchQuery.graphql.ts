@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<9cca73a6c1f06e893aa2e4b8d06b533f>>
+ * @generated SignedSource<<a346e1749b22bb19a855a026939cde8d>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -232,12 +232,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "66845550729c62903103a508adc4faa1",
+    "cacheID": "9f16712f4349c43310db530b3adf0dc3",
     "id": null,
     "metadata": {},
     "name": "gamesListContentRefetchQuery",
     "operationKind": "query",
-    "text": "query gamesListContentRefetchQuery(\n  $count: Int = 16\n  $cursor: ID\n) {\n  ...gamesListContentFragment_1G22uz\n}\n\nfragment gamesListContentFragment_1G22uz on Query {\n  games(first: $count, after: $cursor) {\n    edges {\n      node {\n        id\n        ...gamesListItemFragment\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment gamesListItemFragment on Game {\n  leftSide {\n    team {\n      players {\n        id\n        name\n      }\n      id\n    }\n    score\n  }\n  rightSide {\n    team {\n      players {\n        id\n        name\n      }\n      id\n    }\n    score\n  }\n}\n"
+    "text": "query gamesListContentRefetchQuery(\n  $count: Int = 16\n  $cursor: ID\n) {\n  ...gamesListContentFragment_1G22uz\n}\n\nfragment gamesListContentFragment_1G22uz on Query {\n  games(first: $count, after: $cursor) {\n    edges {\n      node {\n        id\n        ...gamesListItemFragment\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment gamesListItemFragment on Game {\n  id\n  leftSide {\n    team {\n      players {\n        id\n        name\n      }\n      id\n    }\n    score\n  }\n  rightSide {\n    team {\n      players {\n        id\n        name\n      }\n      id\n    }\n    score\n  }\n}\n"
   }
 };
 })();
