@@ -3,7 +3,10 @@ interface Item {
   name: string;
 }
 
-const items: Item[] = [{path: '/players', name: 'Players'}];
+const items: Item[] = [
+  {path: '/players', name: 'Players'},
+  {path: '/games', name: 'Games'},
+];
 
 export function Navbar() {
   return (
