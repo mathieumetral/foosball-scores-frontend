@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<ef63dce64636af7a5a21c03d09e12006>>
+ * @generated SignedSource<<72f5f8b08d2c5780386af8d2c108f342>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -16,6 +16,7 @@ export type playersListItemFragment$data = {
     readonly goalsAgainst: number;
     readonly goalsFor: number;
     readonly losses: number;
+    readonly ratio: number;
     readonly wins: number;
   };
   readonly " $fragmentType": "playersListItemFragment";
@@ -64,6 +65,13 @@ const node: ReaderFragment = {
           "alias": null,
           "args": null,
           "kind": "ScalarField",
+          "name": "ratio",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
           "name": "goalsFor",
           "storageKey": null
         },
@@ -82,6 +90,6 @@ const node: ReaderFragment = {
   "abstractKey": null
 };
 
-(node as any).hash = "1f519cf048d6b46e9a37a34a2502efb0";
+(node as any).hash = "66d1f9ead881dbee6aa4fe3adf2ead7a";
 
 export default node;

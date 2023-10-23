@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<3618311b614875b0bc162a0a4a80b933>>
+ * @generated SignedSource<<d0df500b98c8e49d6faf7579e63852f8>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -118,6 +118,13 @@ return {
                         "alias": null,
                         "args": null,
                         "kind": "ScalarField",
+                        "name": "ratio",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
                         "name": "goalsFor",
                         "storageKey": null
                       },
@@ -193,12 +200,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "94539d6865e932481294918e90e737f8",
+    "cacheID": "9e74e43aacfac0fe75b4ef929b0b2ce0",
     "id": null,
     "metadata": {},
     "name": "playersListContentQuery",
     "operationKind": "query",
-    "text": "query playersListContentQuery {\n  ...playersListContentFragment\n}\n\nfragment playersListContentFragment on Query {\n  players(first: 10, orderBy: RATIO_GOAL_DIFF_MOST) {\n    edges {\n      node {\n        id\n        ...playersListItemFragment\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment playersListItemFragment on Player {\n  name\n  stats {\n    wins\n    losses\n    goalsFor\n    goalsAgainst\n  }\n}\n"
+    "text": "query playersListContentQuery {\n  ...playersListContentFragment\n}\n\nfragment playersListContentFragment on Query {\n  players(first: 10, orderBy: RATIO_GOAL_DIFF_MOST) {\n    edges {\n      node {\n        id\n        ...playersListItemFragment\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment playersListItemFragment on Player {\n  name\n  stats {\n    wins\n    losses\n    ratio\n    goalsFor\n    goalsAgainst\n  }\n}\n"
   }
 };
 })();

@@ -8,6 +8,7 @@ const playersListItemFragment = graphql`
     stats {
       wins
       losses
+      ratio
       goalsFor
       goalsAgainst
     }
@@ -22,7 +23,6 @@ export function PlayersListItem({player}: Props) {
   const data = useFragment(playersListItemFragment, player);
 
   const gamesPlayed = data.stats.wins + data.stats.losses;
-  const ratio = data.stats.wins / gamesPlayed;
   const goalsDifference = data.stats.goalsFor - data.stats.goalsAgainst;
 
   const playerData = [
@@ -30,7 +30,7 @@ export function PlayersListItem({player}: Props) {
     gamesPlayed,
     data.stats.wins,
     data.stats.losses,
-    ratio.toFixed(2),
+    data.stats.ratio,
     data.stats.goalsFor,
     data.stats.goalsAgainst,
     goalsDifference,
