@@ -4,12 +4,12 @@ export const dynamic = 'force-dynamic';
 
 export default function PlayersPage() {
   return (
-    <div className="mb-16 mt-6">
+    <>
       <h1 className="mb-4 text-2xl font-semibold">Players List</h1>
 
       <div className="rounded-xl bg-white shadow">
         <PlayersList />
       </div>
-    </div>
+    </>
   );
 }
