@@ -9,6 +9,7 @@ import {useFormValidation} from '@lib/hooks/use-form-validation';
 import {TextField} from '@lib/ui/components/text-field';
 import {Button} from '@lib/ui/components/button';
 import {gameFormSchema} from '@features/games/form-validation/game-form';
+import {convertDateLocalToUTCFormat} from '@lib/utils/convert-date-local-to-utc-format';
 
 const gameCreateFormMutation = graphql`
   mutation gameCreateFormMutation($input: CreateGameInput!) {
@@ -21,6 +22,7 @@ const gameCreateFormMutation = graphql`
 export function GameCreateForm() {
   const router = useRouter();
   const [commitMutation, isMutationInFlight] = useMutation<gameCreateFormMutationType>(gameCreateFormMutation);
+  const [datePlayed, setDatePlayed] = useState('');
   const [leftPlayerName, setLeftPlayerName] = useState('');
   const [rightPlayerName, setRightPlayerName] = useState('');
   const [leftScore, setLeftScore] = useState<number>(0);
@@ -28,6 +30,7 @@ export function GameCreateForm() {
   const {registerField, handleSubmit: handleValidation} = useFormValidation({
     schema: gameFormSchema,
     values: {
+      datePlayed,
       leftPlayerName,
       rightPlayerName,
       leftScore,
@@ -39,6 +42,7 @@ export function GameCreateForm() {
     commitMutation({
       variables: {
         input: {
+          datePlayed: convertDateLocalToUTCFormat(datePlayed),
           leftSide: {
             playerName: leftPlayerName,
             score: leftScore,
@@ -68,6 +72,17 @@ export function GameCreateForm() {
 
   return (
     <form onSubmit={handleSubmit}>
+      <div className="mb-6">
+        <TextField
+          label="Date Played:"
+          value={datePlayed}
+          onChange={e => setDatePlayed(e.currentTarget.value)}
+          type="datetime-local"
+          description="If left blank, the current date and time will be used."
+          {...registerField('datePlayed')}
+        />
+      </div>
+
       <div className="flex justify-between">
         <div className="w-1/2 pr-2">
           <TextField

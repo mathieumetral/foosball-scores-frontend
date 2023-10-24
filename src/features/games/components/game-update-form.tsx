@@ -10,10 +10,13 @@ import {Button} from '@lib/ui/components/button';
 import {gameFormSchema} from '@features/games/form-validation/game-form';
 import {gameUpdateFormMutation as gameUpdateFormMutationType} from '@data/__generated__/gameUpdateFormMutation.graphql';
 import {gameUpdateFormQuery as gameUpdateFormQueryType} from '@data/__generated__/gameUpdateFormQuery.graphql';
+import {convertDateUTCToLocalFormat} from '@lib/utils/convert-date-utc-to-local-format';
+import {convertDateLocalToUTCFormat} from '@lib/utils/convert-date-local-to-utc-format';
 
 const gameUpdateFormQuery = graphql`
   query gameUpdateFormQuery($id: ID!) {
     game(id: $id) {
+      datePlayed
       leftSide {
         score
         team {
@@ -50,6 +53,7 @@ export function GameUpdateForm({id}: {id: string}) {
   });
   const [commitMutation, isMutationInFlight] = useMutation<gameUpdateFormMutationType>(gameUpdateFormMutation);
 
+  const [datePlayed, setDatePlayed] = useState(convertDateUTCToLocalFormat(game?.datePlayed as string) ?? '');
   const [leftPlayerName, setLeftPlayerName] = useState(game?.leftSide.team.players[0].name ?? '');
   const [rightPlayerName, setRightPlayerName] = useState(game?.rightSide.team.players[0].name ?? '');
   const [leftScore, setLeftScore] = useState<number>(game?.leftSide.score ?? 0);
@@ -57,6 +61,7 @@ export function GameUpdateForm({id}: {id: string}) {
   const {registerField, handleSubmit: handleValidation} = useFormValidation({
     schema: gameFormSchema,
     values: {
+      datePlayed,
       leftPlayerName,
       rightPlayerName,
       leftScore,
@@ -69,6 +74,7 @@ export function GameUpdateForm({id}: {id: string}) {
       variables: {
         input: {
           id,
+          datePlayed: convertDateLocalToUTCFormat(datePlayed),
           leftSide: {
             playerName: leftPlayerName,
             score: leftScore,
@@ -87,6 +93,16 @@ export function GameUpdateForm({id}: {id: string}) {
 
   return (
     <form onSubmit={handleSubmit}>
+      <div className="mb-6">
+        <TextField
+          label="Date Played:"
+          value={datePlayed}
+          onChange={e => setDatePlayed(e.currentTarget.value)}
+          type="datetime-local"
+          {...registerField('datePlayed')}
+        />
+      </div>
+
       <div className="flex justify-between">
         <div className="w-1/2 pr-2">
           <TextField

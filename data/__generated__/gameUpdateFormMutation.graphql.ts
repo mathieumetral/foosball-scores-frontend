@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<2f9af35f60b6fb5a73129ba797e3bb09>>
+ * @generated SignedSource<<1200d208b419838bad9d9a2745da2e8d>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -11,6 +11,7 @@
 import { ConcreteRequest, Mutation } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
 export type UpdateGameInput = {
+  datePlayed?: any | null | undefined;
   id: string;
   leftSide?: UpdateGameSideInput | null | undefined;
   rightSide?: UpdateGameSideInput | null | undefined;
@@ -139,6 +140,13 @@ return {
           {
             "alias": null,
             "args": null,
+            "kind": "ScalarField",
+            "name": "datePlayed",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
             "concreteType": "GameSide",
             "kind": "LinkedField",
             "name": "leftSide",
@@ -162,12 +170,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "af8baa90a1536c7ccbcb5ead10162940",
+    "cacheID": "77457c74240ace8fb7d7497bf3aaa44a",
     "id": null,
     "metadata": {},
     "name": "gameUpdateFormMutation",
     "operationKind": "mutation",
-    "text": "mutation gameUpdateFormMutation(\n  $input: UpdateGameInput!\n) {\n  updateGame(input: $input) {\n    ...gamesListItemFragment\n    id\n  }\n}\n\nfragment gamesListItemFragment on Game {\n  id\n  leftSide {\n    team {\n      players {\n        id\n        name\n      }\n      id\n    }\n    score\n  }\n  rightSide {\n    team {\n      players {\n        id\n        name\n      }\n      id\n    }\n    score\n  }\n}\n"
+    "text": "mutation gameUpdateFormMutation(\n  $input: UpdateGameInput!\n) {\n  updateGame(input: $input) {\n    ...gamesListItemFragment\n    id\n  }\n}\n\nfragment gamesListItemFragment on Game {\n  id\n  datePlayed\n  leftSide {\n    team {\n      players {\n        id\n        name\n      }\n      id\n    }\n    score\n  }\n  rightSide {\n    team {\n      players {\n        id\n        name\n      }\n      id\n    }\n    score\n  }\n}\n"
   }
 };
 })();
