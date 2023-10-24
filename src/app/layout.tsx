@@ -19,7 +19,7 @@ export default function RootLayout({children}: {children: ReactNode}) {
       <body className={clsx(inter.className, 'bg-slate-100')}>
         <Navbar />
         <RelayProvider>
-          <div className="div container mx-auto mb-16 mt-6">{children}</div>
+          <div className="container mx-auto mb-16 mt-6">{children}</div>
         </RelayProvider>
       </body>
     </html>
