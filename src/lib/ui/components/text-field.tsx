@@ -6,7 +6,7 @@ export interface TextFieldProps {
   placeholder?: string;
   value?: string;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-  type?: 'text' | 'password' | 'email' | 'number';
+  type?: 'text' | 'password' | 'email' | 'number' | 'datetime-local';
   name?: string;
   id?: string;
   className?: string;

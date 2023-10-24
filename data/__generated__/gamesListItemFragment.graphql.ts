@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<71a5adc01d1b8291c2deb76214dd58a7>>
+ * @generated SignedSource<<22c7b88957b5417d965661e9cc551459>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -11,6 +11,7 @@
 import { Fragment, ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
 export type gamesListItemFragment$data = {
+  readonly datePlayed: any;
   readonly id: string;
   readonly leftSide: {
     readonly score: number;
@@ -94,6 +95,13 @@ return {
     {
       "alias": null,
       "args": null,
+      "kind": "ScalarField",
+      "name": "datePlayed",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
       "concreteType": "GameSide",
       "kind": "LinkedField",
       "name": "leftSide",
@@ -117,6 +125,6 @@ return {
 };
 })();
 
-(node as any).hash = "762ec0d63ed560a0edc086e0df95250e";
+(node as any).hash = "29e00d5688929e822e5c61e00dcb1cf2";
 
 export default node;

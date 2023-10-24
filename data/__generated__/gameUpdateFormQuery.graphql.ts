@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<565ba7b95e90f945593b6f6a3b5b4571>>
+ * @generated SignedSource<<1c5e51e6742d26c52eb5823e510311ec>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -14,6 +14,7 @@ export type gameUpdateFormQuery$variables = {
 };
 export type gameUpdateFormQuery$data = {
   readonly game: {
+    readonly datePlayed: any;
     readonly leftSide: {
       readonly score: number;
       readonly team: {
@@ -56,18 +57,25 @@ v2 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "score",
+  "name": "datePlayed",
   "storageKey": null
 },
 v3 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
+  "name": "score",
+  "storageKey": null
+},
+v4 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
   "name": "name",
   "storageKey": null
 },
-v4 = [
-  (v2/*: any*/),
+v5 = [
+  (v3/*: any*/),
   {
     "alias": null,
     "args": null,
@@ -84,7 +92,7 @@ v4 = [
         "name": "players",
         "plural": true,
         "selections": [
-          (v3/*: any*/)
+          (v4/*: any*/)
         ],
         "storageKey": null
       }
@@ -92,15 +100,15 @@ v4 = [
     "storageKey": null
   }
 ],
-v5 = {
+v6 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "id",
   "storageKey": null
 },
-v6 = [
-  (v2/*: any*/),
+v7 = [
+  (v3/*: any*/),
   {
     "alias": null,
     "args": null,
@@ -117,12 +125,12 @@ v6 = [
         "name": "players",
         "plural": true,
         "selections": [
-          (v3/*: any*/),
-          (v5/*: any*/)
+          (v4/*: any*/),
+          (v6/*: any*/)
         ],
         "storageKey": null
       },
-      (v5/*: any*/)
+      (v6/*: any*/)
     ],
     "storageKey": null
   }
@@ -142,6 +150,7 @@ return {
         "name": "game",
         "plural": false,
         "selections": [
+          (v2/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -149,7 +158,7 @@ return {
             "kind": "LinkedField",
             "name": "leftSide",
             "plural": false,
-            "selections": (v4/*: any*/),
+            "selections": (v5/*: any*/),
             "storageKey": null
           },
           {
@@ -159,7 +168,7 @@ return {
             "kind": "LinkedField",
             "name": "rightSide",
             "plural": false,
-            "selections": (v4/*: any*/),
+            "selections": (v5/*: any*/),
             "storageKey": null
           }
         ],
@@ -183,6 +192,7 @@ return {
         "name": "game",
         "plural": false,
         "selections": [
+          (v2/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -190,7 +200,7 @@ return {
             "kind": "LinkedField",
             "name": "leftSide",
             "plural": false,
-            "selections": (v6/*: any*/),
+            "selections": (v7/*: any*/),
             "storageKey": null
           },
           {
@@ -200,26 +210,26 @@ return {
             "kind": "LinkedField",
             "name": "rightSide",
             "plural": false,
-            "selections": (v6/*: any*/),
+            "selections": (v7/*: any*/),
             "storageKey": null
           },
-          (v5/*: any*/)
+          (v6/*: any*/)
         ],
         "storageKey": null
       }
     ]
   },
   "params": {
-    "cacheID": "66c1867169add4ed7d4d663a0be53443",
+    "cacheID": "2b528f2b5003888c57430f94bbd06b01",
     "id": null,
     "metadata": {},
     "name": "gameUpdateFormQuery",
     "operationKind": "query",
-    "text": "query gameUpdateFormQuery(\n  $id: ID!\n) {\n  game(id: $id) {\n    leftSide {\n      score\n      team {\n        players {\n          name\n          id\n        }\n        id\n      }\n    }\n    rightSide {\n      score\n      team {\n        players {\n          name\n          id\n        }\n        id\n      }\n    }\n    id\n  }\n}\n"
+    "text": "query gameUpdateFormQuery(\n  $id: ID!\n) {\n  game(id: $id) {\n    datePlayed\n    leftSide {\n      score\n      team {\n        players {\n          name\n          id\n        }\n        id\n      }\n    }\n    rightSide {\n      score\n      team {\n        players {\n          name\n          id\n        }\n        id\n      }\n    }\n    id\n  }\n}\n"
   }
 };
 })();
 
-(node as any).hash = "e098104e28c9b764675a9efbc03ced0f";
+(node as any).hash = "f6d813e5aca889ba4a9f12db9f1d61b2";
 
 export default node;

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<046912e6936f38f12d34c41c8fa5032d>>
+ * @generated SignedSource<<23bc07e9c01d1d3d443339a41fd379dc>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -124,6 +124,13 @@ return {
                   {
                     "alias": null,
                     "args": null,
+                    "kind": "ScalarField",
+                    "name": "datePlayed",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
                     "concreteType": "GameSide",
                     "kind": "LinkedField",
                     "name": "leftSide",
@@ -201,12 +208,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "5d9c5c86ac89aa20486c47ccdd8985a0",
+    "cacheID": "68b88895c68729d747f31d0adef5c3eb",
     "id": null,
     "metadata": {},
     "name": "gamesListQuery",
     "operationKind": "query",
-    "text": "query gamesListQuery {\n  ...gamesListContentFragment\n}\n\nfragment gamesListContentFragment on Query {\n  games(first: 16) {\n    edges {\n      node {\n        id\n        ...gamesListItemFragment\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment gamesListItemFragment on Game {\n  id\n  leftSide {\n    team {\n      players {\n        id\n        name\n      }\n      id\n    }\n    score\n  }\n  rightSide {\n    team {\n      players {\n        id\n        name\n      }\n      id\n    }\n    score\n  }\n}\n"
+    "text": "query gamesListQuery {\n  ...gamesListContentFragment\n}\n\nfragment gamesListContentFragment on Query {\n  games(first: 16) {\n    edges {\n      node {\n        id\n        ...gamesListItemFragment\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment gamesListItemFragment on Game {\n  id\n  datePlayed\n  leftSide {\n    team {\n      players {\n        id\n        name\n      }\n      id\n    }\n    score\n  }\n  rightSide {\n    team {\n      players {\n        id\n        name\n      }\n      id\n    }\n    score\n  }\n}\n"
   }
 };
 })();

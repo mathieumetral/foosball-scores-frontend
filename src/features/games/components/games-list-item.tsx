@@ -7,6 +7,7 @@ import {Button} from '@lib/ui/components/button';
 import {gamesListItemDeleteMutation} from '@data/__generated__/gamesListItemDeleteMutation.graphql';
 import {clsx} from 'clsx';
 import Link from 'next/link';
+import {formatDateTime} from '@lib/utils/format-date-time';
 
 const gamesListItemDeleteMutation = graphql`
   mutation gamesListItemDeleteMutation($input: DeleteGameInput!) {
@@ -19,6 +20,7 @@ const gamesListItemDeleteMutation = graphql`
 const gamesListItemFragment = graphql`
   fragment gamesListItemFragment on Game {
     id
+    datePlayed
     leftSide {
       team {
         players {
@@ -79,10 +81,7 @@ export function GamesListItem({game}: Props) {
 
   return (
     <div className={clsx('rounded-2xl bg-white p-4 shadow', isMutationInFlight && 'pointer-events-none opacity-40')}>
-      <div className="mb-4 flex items-center justify-between">
-        <div className="text-xl font-semibold">Single</div>
-        <div className="font-normal text-slate-500">Date</div>
-      </div>
+      <div className="mb-6 mr-0 text-right font-normal text-slate-500">{formatDateTime(data.datePlayed as string)}</div>
       <div className="text-center text-3xl font-bold">
         {data.leftSide.score} - {data.rightSide.score}
       </div>

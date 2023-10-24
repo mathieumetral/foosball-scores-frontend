@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<f6ef37f09856ecab7df3d0508ef3c7ed>>
+ * @generated SignedSource<<9d53b2a27b053d135edee9dd028b1160>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -11,6 +11,7 @@
 import { ConcreteRequest, Mutation } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
 export type CreateGameInput = {
+  datePlayed?: any | null | undefined;
   leftSide: CreateGameSideInput;
   rightSide: CreateGameSideInput;
 };
@@ -138,6 +139,13 @@ return {
           {
             "alias": null,
             "args": null,
+            "kind": "ScalarField",
+            "name": "datePlayed",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
             "concreteType": "GameSide",
             "kind": "LinkedField",
             "name": "leftSide",
@@ -161,12 +169,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "ba4320fba5f67b37723a6261ae32dacf",
+    "cacheID": "7cda6e023f164192422f781962b14bdf",
     "id": null,
     "metadata": {},
     "name": "gameCreateFormMutation",
     "operationKind": "mutation",
-    "text": "mutation gameCreateFormMutation(\n  $input: CreateGameInput!\n) {\n  createGame(input: $input) {\n    ...gamesListItemFragment\n    id\n  }\n}\n\nfragment gamesListItemFragment on Game {\n  id\n  leftSide {\n    team {\n      players {\n        id\n        name\n      }\n      id\n    }\n    score\n  }\n  rightSide {\n    team {\n      players {\n        id\n        name\n      }\n      id\n    }\n    score\n  }\n}\n"
+    "text": "mutation gameCreateFormMutation(\n  $input: CreateGameInput!\n) {\n  createGame(input: $input) {\n    ...gamesListItemFragment\n    id\n  }\n}\n\nfragment gamesListItemFragment on Game {\n  id\n  datePlayed\n  leftSide {\n    team {\n      players {\n        id\n        name\n      }\n      id\n    }\n    score\n  }\n  rightSide {\n    team {\n      players {\n        id\n        name\n      }\n      id\n    }\n    score\n  }\n}\n"
   }
 };
 })();
