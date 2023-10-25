@@ -45,8 +45,6 @@ Notice how there's a delay before the GraphQL query even starts fetching. Ideall
 
 ### Loading the `/players` page
 
-Certainly! Here's the translation:
-
 It's on this page that we optimally load the data. As mentioned earlier, Next.js will initiate the query to our backend as soon as a client requests the relevant page. This results in the following diagram:
 
 ![Network start when the page is requested](./use-preloaded-query.png)

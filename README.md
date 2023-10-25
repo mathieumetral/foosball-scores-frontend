@@ -60,8 +60,8 @@ Below is a list of dependencies used in this project, along with their purpose:
 - `autoprefixer`: Necessary for TailwindCSS.
 - `esbuild`: Used for building the project.
 - `eslint`: Enforces code style and rules.
-- `eslint-config-next`: 
-- `eslint-plugin-tailwindcss`:
+- `eslint-config-next`: Provides ESLint rules for Next.js projects.
+- `eslint-plugin-tailwindcss`: Enforces best practices when using TailwindCSS.
 - `postcss`: Necessary for TailwindCSS.
 - `prettier`: Guarantees uniform code style.
 - `relay-compiler`: Compiles GraphQL queries for Relay.
