@@ -27,7 +27,7 @@
   "devDependencies": {
     "@total-typescript/ts-reset": "^0.5.1",
     "@types/node": "^20.8.7",
-    "@types/react": "^18.2.31",
+    "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.14",
     "@types/react-relay": "^16.0.0",
     "@types/relay-runtime": "^14.1.15",
