@@ -40,7 +40,7 @@
     "postcss": "^8.4.31",
     "prettier": "^3.0.3",
     "relay-compiler": "^16.0.0",
-    "sass": "^1.69.4",
+    "sass": "^1.69.7",
     "tailwindcss": "^3.3.3",
     "typescript": "^5.2.2"
   }
